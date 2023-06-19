@@ -1,0 +1,16 @@
+{
+    "cardapio": [
+        {
+            "urlImagem": "assets/hamburger.png",
+            "nome": "Hambúrguer",
+            "descricao": "Pão D'água, hamburger de costela, queijo prato, cebola e molho especial",
+            "preco": 35.50
+        },
+        {
+            "urlImagem": "assets/pizza.png",
+            "nome": "Pizza de Calabresa",
+            "descricao": "Mussarela, calabresa, azeitona e orégano.",
+            "preco": 48.25
+        }
+    ]
+}
