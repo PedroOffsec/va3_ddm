@@ -38,12 +38,17 @@ class _BasicScreen extends State<BasicScreen> {
           ),
         ),
         body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/banner.png'),
-            Column(
-              children: _cardapio,
+            Image.asset(
+              'assets/banner.png',
             ),
+            Expanded(
+                child: Scrollbar(
+              child: ListView(
+                children: _cardapio,
+              ),
+            )),
           ],
         ),
       ),
@@ -56,13 +61,12 @@ class _BasicScreen extends State<BasicScreen> {
     final jsonResponse = jsonDecode(jsonString);
 
     setState(() {
-      _cardapio = (jsonResponse['cardapio'] as List)
-          .map((e) => Prato(
-              urlImagem: e['urlImagem'],
-              nome: e['nome'],
-              descricao: e['descricao'],
-              preco: e['preco']))
-          .toList();
+      _cardapio.clear();
+      _cardapio.addAll((jsonResponse['cardapio'] as List).map((e) => Prato(
+          urlImagem: e['urlImagem'],
+          nome: e['nome'],
+          descricao: e['descricao'],
+          preco: e['preco'])));
     });
   }
 }
